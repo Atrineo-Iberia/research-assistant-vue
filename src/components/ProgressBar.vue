@@ -40,8 +40,8 @@
 </template>
 
 <script setup>
-import { CheckIcon } from '@heroicons/vue/24/solid'
-import { STEPS } from '~/constants/config'
+//import { CheckIcon } from '@heroicons/vue/24/solid'
+import { STEPS } from '../constants/config'
 
 const props = defineProps({
   currentStep: {

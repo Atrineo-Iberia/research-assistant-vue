@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { STEPS } from '../constants/config'
 
 export const useMainStore = defineStore('main', {
   state: () => ({

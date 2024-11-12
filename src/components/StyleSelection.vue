@@ -23,8 +23,8 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-import { useMainStore } from '~/stores/main'
-import { STYLE_OPTIONS } from '~/constants/config'
+import { useMainStore } from '../stores/main'
+import { STYLE_OPTIONS } from '../constants/config'
 
 const store = useMainStore()
 const selectedStyle = ref('')

@@ -62,9 +62,9 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { CheckCircleIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid'
-import { useMainStore } from '~/stores/main'
-import { STEPS } from '~/constants/config'
+//import { CheckCircleIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid'
+import { useMainStore } from '../stores/main'
+import { STEPS } from '../constants/config'
 
 const store = useMainStore()
 const currentStepIndex = ref(0)

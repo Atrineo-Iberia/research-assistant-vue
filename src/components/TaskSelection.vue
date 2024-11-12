@@ -49,8 +49,8 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useMainStore } from '~/stores/main'
-import { TASK_OPTIONS } from '~/constants/config'
+import { useMainStore } from '../stores/main'
+import { TASK_OPTIONS } from '../constants/config'
 
 const store = useMainStore()
 const selectedTask = ref('')

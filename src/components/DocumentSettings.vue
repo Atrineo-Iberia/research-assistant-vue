@@ -38,8 +38,8 @@
 
 <script setup>
 import { ref, watch } from 'vue'
-import { useMainStore } from '~/stores/main'
-import { DOCUMENT_SETTINGS } from '~/constants/config'
+import { useMainStore } from '../stores/main'
+import { DOCUMENT_SETTINGS } from '../constants/config'
 
 const store = useMainStore()
 const selectedSetting = ref('')

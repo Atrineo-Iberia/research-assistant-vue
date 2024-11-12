@@ -43,31 +43,36 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useMainStore } from '~/stores/main'
+import { useMainStore } from '../stores/main'
+
+import ProgressBar from '../components/ProgressBar.vue'
+import TaskSelection from '../components/TaskSelection.vue'
+import DocumentSettings from '../components/DocumentSettings.vue'
+import StyleSelection from '../components/StyleSelection.vue'
+import FileUploader from '../components/FileUploader.vue'
+import ReportGeneration from '../components/ReportGeneration.vue'
 
 const store = useMainStore()
 
 const currentComponent = computed(() => {
   switch (store.step) {
     case 0:
-      return resolveComponent('TaskSelection')
+      return TaskSelection
     case 1:
-      return resolveComponent('DocumentSettings')
+      return DocumentSettings
     case 2:
-      return resolveComponent('StyleSelection')
+      return StyleSelection
     case 3:
-      return resolveComponent('FileUploader')
+      return FileUploader
     case 4:
-      return resolveComponent('ReportGeneration')
+      return ReportGeneration
     default:
       return null
   }
 })
 
 const showNextButton = computed(() => {
-  // No mostrar el botón Next en el último paso
   if (store.step === 4) return false
-  // No mostrar el botón Next cuando se selecciona "Default settings"
   if (store.step === 1 && store.documentSetting === "Default settings") return false
   return true
 })

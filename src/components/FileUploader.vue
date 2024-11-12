@@ -66,9 +66,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import { DocumentArrowUpIcon, DocumentIcon, XMarkIcon } from '@heroicons/vue/24/outline'
-import { useMainStore } from '~/stores/main'
-import { FILE_TYPES } from '~/constants/config'
+//import { DocumentArrowUpIcon, DocumentIcon, XMarkIcon } from '@heroicons/vue/24/outline'  
+import { useMainStore } from '../stores/main'
+import { FILE_TYPES } from '../constants/config'
 
 const store = useMainStore()
 const files = ref([])
