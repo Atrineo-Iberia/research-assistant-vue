@@ -76,7 +76,7 @@ const generateReport = async () => {
   try {
     console.log('Starting report generation...')
     console.log('Store state:', {
-      directory: store.uploadedFiles.directory,
+      uploadedFiles: store.uploadedFiles,
       settings: store.customSettings,
       title: store.reportTitle,
       subtitle: store.reportSubtitle
@@ -88,9 +88,13 @@ const generateReport = async () => {
     formData.append('title', store.reportTitle)
     formData.append('subtitle', store.reportSubtitle)
 
+    const apiUrl = import.meta.env.VITE_API_URL
     console.log('Sending request to generate-report endpoint...')
-    const response = await fetch('/api/generate-report', {
+    const response = await fetch(`${apiUrl}/generate-report`, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
       body: formData
     })
 
@@ -101,11 +105,11 @@ const generateReport = async () => {
     }
 
     console.log('Report generated successfully')
-    const { pdfPath: pdf, docxPath: docx } = await response.json()
-    console.log('Received paths:', { pdf, docx })
+    const { pdf_url, docx_url } = await response.json()
+    console.log('Received paths:', { pdf_url, docx_url })
     
-    pdfPath.value = pdf
-    docxPath.value = docx
+    pdfPath.value = pdf_url
+    docxPath.value = docx_url
     reportGenerated.value = true
   } catch (error) {
     console.error('Error generating report:', error)

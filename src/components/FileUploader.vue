@@ -104,8 +104,8 @@ const handleUpload = async () => {
   })
 
   try {
-    // Primero subimos los archivos al servidor
-    const response = await fetch('/api/upload-files', {
+    const apiUrl = import.meta.env.VITE_API_URL
+    const response = await fetch(`${apiUrl}/upload-files`, {
       method: 'POST',
       body: formData
     })
