@@ -92,9 +92,6 @@ const generateReport = async () => {
     console.log('Sending request to generate-report endpoint...')
     const response = await fetch(`${apiUrl}/generate-report`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
       body: formData
     })
 
@@ -121,7 +118,6 @@ const createAnotherReport = () => {
 }
 
 onMounted(async () => {
-  // Simular los pasos de generación
   for (let i = 0; i < STEPS.length; i++) {
     currentStepIndex.value = i
     await new Promise(resolve => setTimeout(resolve, 1000))

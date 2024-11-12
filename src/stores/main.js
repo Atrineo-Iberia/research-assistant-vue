@@ -5,8 +5,8 @@ export const useMainStore = defineStore('main', {
   state: () => ({
     step: 0,
     taskSelection: null,
-    reportTitle: null,
-    reportSubtitle: null,
+    reportTitle: '',
+    reportSubtitle: '',
     documentSetting: null,
     selectedStyle: null,
     uploadedFiles: null,
