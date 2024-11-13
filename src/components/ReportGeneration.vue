@@ -6,7 +6,7 @@
           <div v-for="(step, index) in STEPS" :key="index" class="flex items-center">
             <span class="mr-3">
               <template v-if="currentStepIndex > index">
-                <CheckCircleIcon class="w-6 h-6 text-green-500" />
+                <CheckCircleIcon class="w-6 h-6 text-primary" />
               </template>
               <template v-else-if="currentStepIndex === index">
                 <div class="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
@@ -62,7 +62,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-//import { CheckCircleIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid'
+import { CheckCircleIcon, DocumentArrowDownIcon } from '@heroicons/vue/24/solid'
 import { useMainStore } from '../stores/main'
 import { STEPS } from '../constants/config'
 

@@ -26,8 +26,18 @@
             <input
               type="checkbox"
               v-model="settings[key]"
-              class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+              class="hidden peer"
             />
+            <div class="w-4 h-4 border-2 border-gray-300 rounded-lg flex items-center justify-center peer-checked:bg-primary">
+              <svg
+                v-if="settings[key]"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-3 w-3 text-white"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+              </svg>
+            </div>
             <span class="text-gray-700">{{ formatKey(key) }}</span>
           </label>
         </div>

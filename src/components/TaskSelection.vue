@@ -39,7 +39,7 @@
       <button
         @click="handleNext"
         :disabled="!canProceed"
-        class="w-full mt-4 py-2 px-4 bg-red-200 text-black rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary-dark"
+        class="w-full mt-4 py-2 px-4 bg-primary text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#042d47] transition-colors"
       >
         Next
       </button>

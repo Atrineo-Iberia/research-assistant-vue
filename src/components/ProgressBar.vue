@@ -1,46 +1,41 @@
 <template>
-  <div class="flex items-center justify-between">
+  <div class="flex items-center justify-between mb-8">
     <div
       v-for="(step, index) in STEPS"
       :key="index"
-      class="flex items-center"
+      class="flex items-center relative"
     >
-      <!-- Línea conectora -->
+      <!-- Connector line -->
       <div
         v-if="index > 0"
-        class="h-1 w-16 mx-2"
-        :class="index <= currentStep ? 'bg-primary' : 'bg-gray-200'"
+        class="h-0.5 w-24 mx-6"
+        :class="index < currentStep ? 'bg-primary' : 'bg-gray-200'"
       ></div>
       
-      <!-- Indicador de paso -->
+      <!-- Step indicator -->
       <div class="flex items-center">
         <div
-          class="w-8 h-8 rounded-full flex items-center justify-center"
+          class="w-8 h-8 rounded-full flex items-center justify-center text-sm"
           :class="getStepClass(index)"
         >
           <template v-if="index < currentStep">
-            <CheckIcon class="w-5 h-5 text-white" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
           </template>
           <template v-else-if="index === currentStep">
-            <div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            <span class="text-white">{{ index + 1 }}</span>
           </template>
           <template v-else>
-            <span class="text-white text-sm">{{ index + 1 }}</span>
+            <span class="text-white">{{ index + 1 }}</span>
           </template>
         </div>
-        <span
-          class="ml-2 text-sm"
-          :class="index === currentStep ? 'text-primary font-medium' : 'text-gray-500'"
-        >
-          {{ step }}
-        </span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-//import { CheckIcon } from '@heroicons/vue/24/solid'
 import { STEPS } from '../constants/config'
 
 const props = defineProps({
@@ -52,7 +47,7 @@ const props = defineProps({
 
 const getStepClass = (index) => {
   if (index < props.currentStep) {
-    return 'bg-green-500'
+    return 'bg-primary'
   }
   if (index === props.currentStep) {
     return 'bg-primary'

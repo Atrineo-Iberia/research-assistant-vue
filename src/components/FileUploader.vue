@@ -56,7 +56,7 @@
 
       <button
         @click="handleUpload"
-        class="w-full py-2 px-4 bg-primary text-black rounded-lg hover:bg-primary-dark"
+        class="w-full py-2 px-4 bg-primary text-white rounded-lg hover:bg-[#042d47] transition-colors"
       >
         Continue with {{ files.length }} file{{ files.length > 1 ? 's' : '' }}
       </button>
@@ -66,7 +66,7 @@
 
 <script setup>
 import { ref } from 'vue'
-//import { DocumentArrowUpIcon, DocumentIcon, XMarkIcon } from '@heroicons/vue/24/outline'  
+import { DocumentArrowUpIcon, DocumentIcon, XMarkIcon } from '@heroicons/vue/24/outline'  
 import { useMainStore } from '../stores/main'
 import { FILE_TYPES } from '../constants/config'
 
