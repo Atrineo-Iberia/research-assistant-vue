@@ -33,7 +33,7 @@
 
       <div class="grid grid-cols-2 gap-4">
         <a
-          :href="pdfPath"
+          :href="`${apiBaseUrl}${pdfPath}`"
           download
           class="flex items-center justify-center p-4 bg-white border rounded-lg hover:bg-gray-50"
         >
@@ -41,7 +41,7 @@
           Download PDF
         </a>
         <a
-          :href="docxPath"
+          :href="`${apiBaseUrl}${docxPath}`"
           download
           class="flex items-center justify-center p-4 bg-white border rounded-lg hover:bg-gray-50"
         >
@@ -67,6 +67,7 @@ import { useMainStore } from '../stores/main'
 import { STEPS } from '../constants/config'
 
 const store = useMainStore()
+const apiBaseUrl = import.meta.env.VITE_API_URL
 const currentStepIndex = ref(0)
 const reportGenerated = ref(false)
 const pdfPath = ref('')
@@ -88,9 +89,8 @@ const generateReport = async () => {
     formData.append('title', store.reportTitle)
     formData.append('subtitle', store.reportSubtitle)
 
-    const apiUrl = import.meta.env.VITE_API_URL
     console.log('Sending request to generate-report endpoint...')
-    const response = await fetch(`${apiUrl}/generate-report`, {
+    const response = await fetch(`${apiBaseUrl}/generate-report`, {
       method: 'POST',
       body: formData
     })
